@@ -8,9 +8,6 @@ import store from "./store";
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container)
 
-// const root = createRoot(document.getElementById('root'));
-// const reactRoot = ReactDOM.createRoot(document.getElementById('root'));
-
 root.render(
     <Provider store={store}>
         <BrowserRouter>
