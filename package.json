@@ -34,8 +34,10 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "colors": "^1.4.0",
     "css-loader": "^6.7.1",
     "path": "^0.12.7",
+    "sequelize": "^6.21.3",
     "style-loader": "^3.3.1"
   }
 }
