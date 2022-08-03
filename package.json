@@ -1,0 +1,33 @@
+{
+  "name": "smoke-free",
+  "version": "1.0.0",
+  "description": "A web application to help people to quit smoking",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": " webpack",
+    "run:dev": "npm run build & nodemon dist/bundle.js",
+    "run:dev:logger": "LOGGING=true npm run run:dev",
+    "run:dev:seed": "SEED=true npm run run:dev",
+    "build": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafetAbd/smoke-free.git"
+  },
+  "author": "Rafet Abdalgalil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RafetAbd/smoke-free/issues"
+  },
+  "homepage": "https://github.com/RafetAbd/smoke-free#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "css-loader": "^6.7.1",
+    "path": "^0.12.7",
+    "style-loader": "^3.3.1"
+  }
+}
