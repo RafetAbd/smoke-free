@@ -1,6 +1,6 @@
 'use strict';
 const colors = require('colors');
-const { db } = require('./db');
+const { db } = require('../db');
 
 async function seed() {
         await db.sync({ force: true });
