@@ -1,10 +1,32 @@
 'use strict';
 const colors = require('colors');
-const { db } = require('../db');
+const { db, User } = require('../db');
 
 async function seed() {
-        await db.sync({ force: true });
-        console.log('db synced'.rainbow);
+    await db.sync({ force: true });
+    console.log('db synced'.rainbow);
+
+    const users = await Promise.all([
+        User.create({
+            username: 'cody@mail.com',
+            password: '123',
+            name: 'Cody',
+            quittingDay: '2020-01-01',
+            cigarettesPerDay: 20,
+            PacketPrice: 6
+        }),
+        User.create({
+            username: 'lisa@mail.com',
+            password: '123',
+            name: 'Lisa',
+            quittingDay: '2020-01-01',
+            cigarettesPerDay: 8,
+            PacketPrice: 8
+        })
+    ]);
+    console.log(`seeded ${users.length} users`);
+
+
 }
 
 

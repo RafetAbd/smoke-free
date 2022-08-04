@@ -36,7 +36,7 @@ const User = db.define('user', {
             notEmpty: true
         }
     },
-    packesPerDay: {
+    cigarettesPerDay: {
         type: Sequeliize.INTEGER,
         allowNull: false,
         validate: {
