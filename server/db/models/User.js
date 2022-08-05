@@ -3,7 +3,7 @@ const db = require('../db');
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
 
-const SALY_ROUNDS = 5;
+const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
     username: {
@@ -102,7 +102,7 @@ User.findByToken = async function (token) {
 // hooks:
 const hashPassword = async (user) => {
     if (user.changed('password')) {
-        user.password = await bcrypt.hash(user.password, SALY_ROUNDS);
+        user.password = await bcrypt.hash(user.password, SALT_ROUNDS);
     }
 }
 
