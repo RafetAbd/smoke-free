@@ -9,21 +9,26 @@ const Login = () => {
     const [password, setPassword] = React.useState("");
     const [error, setError] = React.useState("");
 
-    const err = useSelector((state) => state.authReducer.error);
+    const err = useSelector((state) => state.authReducer.error.error);
 
     const dispatch = useDispatch();
 
+    // handle the form submit
     const handleSubmit = async(e) => {
+        // prevent the default behavior of the form
         e.preventDefault();
+        // if the email or password is empty, set the error
         if ( !email || !password ) {
             setError("Please enter an email and password");
             return;
         };
+        // invoke the authenticate action creator to authenticate the user
         await dispatch(authenticate(email,password,"login")); 
     }
 
     const clearAllError = async() => {
         console.log("clear error");
+        // invoke the clear error action creator to clear the error
         await dispatch(clearError());
     }
 
@@ -31,7 +36,7 @@ const Login = () => {
         <div>
             <h1>Login component</h1>
             {error && <p>{error}</p>}
-            {err && <p>{err.message}</p>}
+            {err && <p>{err.response.data}</p>}
             <form onSubmit={handleSubmit}>
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />

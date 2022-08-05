@@ -9,7 +9,6 @@ const Home = () => {
         return !!state.authReducer.user.id;
     });
 
-
     return (
         <div>
             {isLoggedIn ? (
