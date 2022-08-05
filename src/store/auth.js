@@ -33,7 +33,7 @@ export const userInfo = () => async dispatch => {
     }
 }
 
-export const authennticate = (username, password, method) => async dispatch => {
+export const authenticate = (username, password, method) => async dispatch => {
     try {
         // get the token from the server
         const { data } = await axios.post(`auth/${method}`, { username, password});

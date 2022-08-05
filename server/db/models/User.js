@@ -2,6 +2,7 @@ const Sequeliize = require('sequelize');
 const db = require('../db');
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
+require("dotenv").config();
 
 const SALT_ROUNDS = 5;
 

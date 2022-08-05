@@ -7,7 +7,7 @@ import Signup from "./components/Signup/Signup";
 const AllRoutes = () => {
 
     const isLoggedIn = () => {
-        // return !!state.authReducer.auth.id
+        // return !!state.authReducer.user.id
         // return !!localStorage.getItem("token");
         return
     }
