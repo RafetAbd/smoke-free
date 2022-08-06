@@ -4,6 +4,7 @@ import history from '../history';
 // Action Types
 const SET_AUTH = 'SET_AUTH';
 const SET_AUTH_ERROR = 'SET_AUTH_ERROR';
+const UPDATE_USER = 'UPDATE_USER';
 const TOKEN = 'token';
 
 // Action Creators
@@ -15,6 +16,11 @@ export const setAuth = user => ({
 export const setError = error => ({
     type: SET_AUTH_ERROR,
     error,
+})
+
+export const updateUser = user => ({
+    type: UPDATE_USER,
+    user,
 })
 
 // Thunk Creators
@@ -76,6 +82,25 @@ export const clearError = () => dispatch => {
     dispatch(setError({}));
 }
 
+export const updateUserInfo = (username, password, name, quittingDay, PacketPrice, cigarettesPerDay, id) => async dispatch => {
+    try {
+        // get the token from the local storage
+        const token = window.localStorage.getItem(TOKEN);
+        // update user info in the server
+        const { data: user } = await axios.put(`/api/users/${id}`, { username, password, name, quittingDay, PacketPrice, cigarettesPerDay }, {
+            headers: {
+                authorization: token,
+            }
+        });
+        // set the user info in the store
+        dispatch(updateUser(user));
+    } catch (authError) {
+        // set the error in the store
+        return dispatch(setError({ error: authError }));
+    }
+}
+
+
 // Reducer
 const initialState = {
     user: {},
@@ -87,6 +112,9 @@ export const authReducer = (state = initialState, action) => {
         case SET_AUTH:
             // return a new state with the user info
             return { ...state, user: action.user };
+        case UPDATE_USER:
+            // return a new state with the user info
+            return { ...state, user: action.user};
         case SET_AUTH_ERROR:
             // return a new state with the error
             return { ...state, error: action.error};

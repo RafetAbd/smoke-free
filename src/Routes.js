@@ -16,15 +16,14 @@ const AllRoutes = () => {
         <div>
             {isLoggedIn ? (
                 <Routes>
-                    <Route path="/edit-info" element={<EditInfo />} />
                     <Route path="/" element={<Home />} />
-                    <Route path="/signup" element={<Navigate to="/" />} />
+                    <Route path="/edit-info" element={<EditInfo />} />                    
                 </Routes>
             ) : (
                 <Routes>
+                    <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
-                    <Route path="/" element={<Home />} />
                 </Routes>
             )} 
         </div>

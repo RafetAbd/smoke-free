@@ -1,14 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import { updateUserInfo } from "../../store/auth";
+import { useNavigate } from 'react-router-dom';
 
 const EditInfo = () => {
+
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.authReducer.user);
 
-        console.log(user.quittingDay)
     const [email, setEmail] = React.useState(user.username);
     const [password, setPassword] = React.useState(user.password);
     const [name, setName] = React.useState(user.name);
@@ -16,8 +18,6 @@ const EditInfo = () => {
     const [packetPrice, setPacketPrice] = React.useState(user.PacketPrice);
     const [cigarettesPerDay, setCigarettesPerDay] = React.useState(user.cigarettesPerDay);
     const [error, setError] = React.useState("");
-
-    console.log(quittingDay)
 
     const err = useSelector((state) => state.authReducer.error.error);
 
@@ -27,8 +27,8 @@ const EditInfo = () => {
             setError("Please fill in all fields");
             return;
         }
-        await dispatch(updateUserInfo(email, password, name, quittingDay, packetPrice, cigarettesPerDay));
-        history.push("/");
+        await dispatch(updateUserInfo(email, password, name, quittingDay, packetPrice, cigarettesPerDay, user.id));
+        navigate('/');
     } 
 
     return (
@@ -42,7 +42,7 @@ const EditInfo = () => {
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <label>Name</label>
                 <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-                <p> Your previous quitting day was {quittingDay.toDateString()}</p>
+                {/* <p> Your previous quitting day was {quittingDay.toDateString()}</p> */}
                 <label>Your new Quitting Day</label>
                 <input type="date" placeholder="Quitting Day" data-date-format="DD MMMM YYYY" value={quittingDay} onChange={(e) => setQuittingDay(e.target.value)} />
                 <label>Packet Price</label>
