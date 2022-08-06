@@ -24,7 +24,16 @@ const Home = () => {
         return [days, hours, minutes];
     });
 
-    
+    const totalCigarettes = useSelector((state) => {
+        let singleDayCigarette =  state.authReducer.user.cigarettesPerDay;
+        let quittingPer = quittingPeriod[0];
+        return singleDayCigarette * quittingPer;
+    } );
+
+    const moneySaved = useSelector((state) => {
+        let moneySaved = Math.floor(totalCigarettes/20) * state.authReducer.user.PacketPrice;
+        return moneySaved;
+    } );
 
     return (
         <div>
@@ -33,9 +42,9 @@ const Home = () => {
                     <h1>Home component after login</h1>
                     <p>Hello {user.name}</p>
                     <p>{new Date(user.quittingDay).toDateString()}</p>
-                    <p>{`days ${quittingPeriod[0]}, hours ${quittingPeriod[1]}, minutes ${quittingPeriod[2]}`}</p>
-                    <p>{user.PacketPrice}</p>
-                    <p>{user.cigarettesPerDay}</p>
+                    <p>{`${quittingPeriod[0]}days, ${quittingPeriod[1]} hours, ${quittingPeriod[2]} minutes`}</p>
+                    <p>{`$${moneySaved} saved since your last puff.`}</p>
+                    <p>{`${totalCigarettes} cigarettes not smoked since you quit`}</p>
                 </div>
             ) : (
                 <Login />
