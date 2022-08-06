@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "../Login/Login";
 import { useSelector } from "react-redux";
+import Health from "../Health/Health";
 
 
 const Home = () => {
@@ -39,12 +40,15 @@ const Home = () => {
         <div>
             {isLoggedIn ? (
                 <div>
+                    <div>
                     <h1>Home component after login</h1>
                     <p>Hello {user.name}</p>
-                    <p>{new Date(user.quittingDay).toDateString()}</p>
-                    <p>{`${quittingPeriod[0]}days, ${quittingPeriod[1]} hours, ${quittingPeriod[2]} minutes`}</p>
-                    <p>{`$${moneySaved} saved since your last puff.`}</p>
-                    <p>{`${totalCigarettes} cigarettes not smoked since you quit`}</p>
+                    <p>Your big day was {new Date(user.quittingDay).toDateString()}</p>
+                    <p>Time somke free {`${quittingPeriod[0]}days, ${quittingPeriod[1]} hours, ${quittingPeriod[2]} minutes`}</p>
+                    <p>Money saved is {`$${moneySaved} since your last puff.`}</p>
+                    <p>Cigarettes not smoked are {`${totalCigarettes} since you quit`}</p>
+                    </div>
+                    <Health days={quittingPeriod[0]}/>
                 </div>
             ) : (
                 <Login />
