@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { authenticate, clearError } from "../../store/auth";
+import { authenticateLogin, clearError } from "../../store/auth";
 
 const Login = () => {
 
@@ -10,6 +10,8 @@ const Login = () => {
     const [error, setError] = React.useState("");
 
     const err = useSelector((state) => state.authReducer.error.error);
+
+    console.log('hello world');
 
     const dispatch = useDispatch();
 
@@ -23,7 +25,7 @@ const Login = () => {
             return;
         };
         // invoke the authenticate action creator to authenticate the user
-        await dispatch(authenticate(email,password,"login")); 
+        await dispatch(authenticateLogin(email,password,"login")); 
     }
 
     const clearAllError = async() => {

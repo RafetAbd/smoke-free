@@ -38,14 +38,14 @@ const User = db.define('user', {
         }
     },
     cigarettesPerDay: {
-        type: Sequeliize.INTEGER,
+        type: Sequeliize.STRING,
         allowNull: false,
         validate: {
             notEmpty: true
         }
     },
     PacketPrice: {
-        type: Sequeliize.INTEGER,
+        type: Sequeliize.STRING,
         allowNull: false,
         validate: {
             notEmpty: true

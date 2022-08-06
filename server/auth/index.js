@@ -15,13 +15,14 @@ router.post('/login', async (req, res, next) => {
 // recieve user info, create a new user and response with a token.
 router.post('/signup', async (req, res, next) => {
     try {
-        const { username, password, name, quittingDay, packesPerDay, PacketPrice } = req.body;
+        console.log(req.body)
+        const { username, password, name, quittingDay, cigarettesPerDay, PacketPrice } = req.body;
         const user = await User.create({
             username,
             password,
             name,
             quittingDay,
-            packesPerDay,
+            cigarettesPerDay,
             PacketPrice
         });
         res.send({ token: user.generateToken() });

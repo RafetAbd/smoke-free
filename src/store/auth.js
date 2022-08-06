@@ -29,14 +29,15 @@ export const userInfo = () => async dispatch => {
             }
         })
         // set the user info in the store
-        dispatch(setAuth(user));
+        await dispatch(setAuth(user));
+        
     }
 }
 
-export const authenticate = (username, password, method) => async dispatch => {
+export const authenticateLogin = (username, password, method) => async dispatch => {
     try {
         // get the token from the server
-        const { data } = await axios.post(`auth/${method}`, { username, password});
+        const { data } = await axios.post(`auth/${method}`, { username, password });
         // set the token in the local storage
         window.localStorage.setItem(TOKEN, data.token);
         // invoke the user info action creator to get the user info
@@ -46,6 +47,21 @@ export const authenticate = (username, password, method) => async dispatch => {
         return dispatch(setError({ error: authError }));
     }
 }
+
+export const authenticateSignup = (username, password, name, quittingDay, PacketPrice, cigarettesPerDay, method) => async dispatch => {
+    try {
+        // get the token from the server
+        const { data } = await axios.post(`auth/${method}`, { username, password, name, quittingDay, PacketPrice, cigarettesPerDay });
+        // set the token in the local storage
+        window.localStorage.setItem(TOKEN, data.token);
+        // invoke the user info action creator to get the user info
+        dispatch(userInfo());
+    } catch (authError) {
+        // set the error in the store
+        return dispatch(setError({ error: authError }));
+    }
+}
+
 
 export const logout = () => dispatch => {
     // remove the token from the local storage
