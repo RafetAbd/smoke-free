@@ -11,8 +11,6 @@ const Login = () => {
 
     const err = useSelector((state) => state.authReducer.error.error);
 
-    console.log('hello world');
-
     const dispatch = useDispatch();
 
     // handle the form submit

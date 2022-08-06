@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
+import EditInfo from "./components/EditInfo/EditInfo";
 
 const AllRoutes = () => {
 
@@ -15,6 +16,7 @@ const AllRoutes = () => {
         <div>
             {isLoggedIn ? (
                 <Routes>
+                    <Route path="/edit-info" element={<EditInfo />} />
                     <Route path="/" element={<Home />} />
                     <Route path="/signup" element={<Navigate to="/" />} />
                 </Routes>

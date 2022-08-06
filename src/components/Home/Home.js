@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "../Login/Login";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Health from "../Health/Health";
 
 
@@ -47,6 +48,9 @@ const Home = () => {
                     <p>Time somke free {`${quittingPeriod[0]}days, ${quittingPeriod[1]} hours, ${quittingPeriod[2]} minutes`}</p>
                     <p>Money saved is {`$${moneySaved} since your last puff.`}</p>
                     <p>Cigarettes not smoked are {`${totalCigarettes} since you quit`}</p>
+                    </div>
+                    <div>
+                        <Link to="/edit-info">Edit info</Link>
                     </div>
                     <Health days={quittingPeriod[0]}/>
                 </div>

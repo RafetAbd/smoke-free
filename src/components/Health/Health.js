@@ -2,7 +2,6 @@ import React from "react";
 import { VictoryPie } from "victory";
 
 const Health = (props) => {
-    console.log(props);
     const days = props.days;
 
     const pulseRate = () => {

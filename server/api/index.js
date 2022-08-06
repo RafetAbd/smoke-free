@@ -1,5 +1,5 @@
 const router = require('express').Router();
 const usersRoute  = require('./routes/users');
-export default router;
+module.exports = router;
 
 router.use('/users', usersRoute);
