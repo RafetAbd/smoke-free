@@ -40,9 +40,15 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <Link to="">forget password</Link>
                 <button type="submit">Login</button>
             </form>
             <p>Don't have an account? <Link to="/signup" onClick={() => clearAllError()}>Signup</Link></p>
+            <div>
+                <button type="submit">continue with Google</button>
+                <button type="submit">continue with Apple</button>
+                <button type="submit">continue with Facebook</button>
+                </div>
         </div>
     );
 }

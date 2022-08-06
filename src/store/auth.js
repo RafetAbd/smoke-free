@@ -1,4 +1,5 @@
 import axios from 'axios';
+import history from '../history';
 
 // Action Types
 const SET_AUTH = 'SET_AUTH';
@@ -17,7 +18,6 @@ export const setError = error => ({
 })
 
 // Thunk Creators
-
 export const userInfo = () => async dispatch => {
     // get the token from the local storage
     const token = window.localStorage.getItem(TOKEN);
