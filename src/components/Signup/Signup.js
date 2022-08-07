@@ -20,6 +20,11 @@ const Signup = () => {
 
     const err = useSelector((state) => state.authReducer.error.error);
 
+    if ( err ) {
+        console.log(err.response.data.message);
+    }
+    
+
     const handleSubmmit = async(e) => {
         e.preventDefault();
         if(!email || !password || !name || !quittingDay || !packetPrice || !cigarettesPerDay){
@@ -27,14 +32,16 @@ const Signup = () => {
             return;
         }
         await dispatch(authenticateSignup(email, password, name, quittingDay, packetPrice, cigarettesPerDay, "signup"));
-        navigate('/');
+        if ( err !== undefined ) {
+            navigate('/');
+        }
     }
 
     return (
         <div>
             <h1>Signup component</h1>
             {error && <p>{error}</p>}
-            {err && <p>{err.response.data}</p>}
+            {err && <p>{err.response.data.message}</p>}
             <form onSubmit={handleSubmmit}>
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />

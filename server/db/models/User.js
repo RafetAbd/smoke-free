@@ -7,10 +7,11 @@ require("dotenv").config();
 const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
-    username: {
+    email: {
         type: Sequeliize.STRING,
         allowNull: false,
         unique: true,
+        isEmail: true,
         validate: {
             notEmpty: true,
             isEmail: true
@@ -71,14 +72,14 @@ User.prototype.validatePassword = function (password) {
 }
 
 // classMethods:
-User.authenticate = async function (username, password) {
+User.authenticate = async function (email, password) {
     const user = await User.findOne({
         where: {
-            username
+            email
         }
     });
     if (!user || !(await user.validatePassword(password))) {
-        const err = new Error('Invalid username or password');
+        const err = new Error('Invalid email or password');
         err.status = 401;
         throw err;
     }

@@ -11,7 +11,7 @@ const EditInfo = () => {
 
     const user = useSelector((state) => state.authReducer.user);
 
-    const [email, setEmail] = React.useState(user.username);
+    const [email, setEmail] = React.useState(user.email);
     const [password, setPassword] = React.useState(user.password);
     const [name, setName] = React.useState(user.name);
     const [quittingDay, setQuittingDay] = React.useState(new Date(user.quittingDay));

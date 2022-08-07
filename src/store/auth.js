@@ -40,10 +40,10 @@ export const userInfo = () => async dispatch => {
     }
 }
 
-export const authenticateLogin = (username, password, method) => async dispatch => {
+export const authenticateLogin = (email, password, method) => async dispatch => {
     try {
         // get the token from the server
-        const { data } = await axios.post(`auth/${method}`, { username, password });
+        const { data } = await axios.post(`auth/${method}`, { email, password });
         // set the token in the local storage
         window.localStorage.setItem(TOKEN, data.token);
         // invoke the user info action creator to get the user info
@@ -54,10 +54,10 @@ export const authenticateLogin = (username, password, method) => async dispatch 
     }
 }
 
-export const authenticateSignup = (username, password, name, quittingDay, PacketPrice, cigarettesPerDay, method) => async dispatch => {
+export const authenticateSignup = (email, password, name, quittingDay, PacketPrice, cigarettesPerDay, method) => async dispatch => {
     try {
         // get the token from the server
-        const { data } = await axios.post(`auth/${method}`, { username, password, name, quittingDay, PacketPrice, cigarettesPerDay });
+        const { data } = await axios.post(`auth/${method}`, { email, password, name, quittingDay, PacketPrice, cigarettesPerDay });
         // set the token in the local storage
         window.localStorage.setItem(TOKEN, data.token);
         // invoke the user info action creator to get the user info
@@ -82,12 +82,12 @@ export const clearError = () => dispatch => {
     dispatch(setError({}));
 }
 
-export const updateUserInfo = (username, password, name, quittingDay, PacketPrice, cigarettesPerDay, id) => async dispatch => {
+export const updateUserInfo = (email, password, name, quittingDay, PacketPrice, cigarettesPerDay, id) => async dispatch => {
     try {
         // get the token from the local storage
         const token = window.localStorage.getItem(TOKEN);
         // update user info in the server
-        const { data: user } = await axios.put(`/api/users/${id}`, { username, password, name, quittingDay, PacketPrice, cigarettesPerDay }, {
+        const { data: user } = await axios.put(`/api/users/${id}`, { email, password, name, quittingDay, PacketPrice, cigarettesPerDay }, {
             headers: {
                 authorization: token,
             }

@@ -5,8 +5,8 @@ module.exports = router;
 // recieve a email, passowrd then verify and response with a token.
 router.post('/login', async (req, res, next) => {
     try {
-        const { username, password } = req.body;
-        res.send({ token: await User.authenticate(username, password) });
+        const { email, password } = req.body;
+        res.send({ token: await User.authenticate(email, password) });
     } catch (err) {
         next(err);
     }
@@ -16,9 +16,9 @@ router.post('/login', async (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
     try {
         console.log(req.body)
-        const { username, password, name, quittingDay, cigarettesPerDay, PacketPrice } = req.body;
+        const { email, password, name, quittingDay, cigarettesPerDay, PacketPrice } = req.body;
         const user = await User.create({
-            username,
+            email,
             password,
             name,
             quittingDay,
