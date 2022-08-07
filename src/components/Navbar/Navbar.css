@@ -1,0 +1,6 @@
+.navbar-main-div {
+
+  /* background: linear-gradient(to right, #035e96, #bae0f7); */
+  background-image: linear-gradient(to right, hsl(203, 70%, 17%), hsl(203, 100%, 50%));
+  color : #fff;
+}

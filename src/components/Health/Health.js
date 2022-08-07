@@ -1,5 +1,5 @@
 import React from "react";
-import { VictoryPie } from "victory";
+import { VictoryPie, VictoryTheme, VictoryLabel } from "victory";
 
 const Health = (props) => {
     const days = props.days;
@@ -10,8 +10,8 @@ const Health = (props) => {
             percentage = 100;
         };
         let data = [
-            { x: `${100 - percentage}% remaining`, y: 100 - percentage },
-            { x: "0-1", y: percentage, label: `Pulse Rate improvment ${percentage}%` },
+            { x: '', y: 100 - percentage },
+            { x: '', y: percentage, label: `Pulse Rate improvment ${percentage}%` },
         ];
         return data;
     }
@@ -90,16 +90,133 @@ const Health = (props) => {
 
     return (
         <div>
-            <h1>Health component</h1>
-            <h1>Your Health Improvment</h1>
             <div>
-                <VictoryPie colorScale={["tomato", "cyan"]} data={pulseRate()} animate={{ duration: 2000 }} />
-                <VictoryPie colorScale={["tomato", "cyan"]} data={oxygenLevel()} animate={{ duration: 2000 }} />
-                <VictoryPie colorScale={["tomato", "cyan"]} data={carbonMonoxideLevel()} animate={{ duration: 2000 }} />
-                <VictoryPie colorScale={["tomato", "cyan"]} data={nicotinexpelled()} animate={{ duration: 2000 }} />
-                <VictoryPie colorScale={["tomato", "cyan"]} data={tasteAndSmell()} animate={{ duration: 2000 }} />
-                <VictoryPie colorScale={["tomato", "cyan"]} data={circulation()} animate={{ duration: 2000 }} />
-                <VictoryPie colorScale={["tomato", "cyan"]} data={heartDisease()} animate={{ duration: 2000 }} />
+                <div>
+                    <svg viewBox="0 0 200 200">
+                        <text x={100} y={100} textAnchor="middle">
+                            {pulseRate()[1].y}%
+                        </text>
+                        <VictoryPie
+                            standalone={false}
+                            padAngle={0}
+                            labelComponent={<span />}
+                            innerRadius={70}
+                            width={200} height={200}
+                            colorScale={["#e3dede", "#19B3A6"]}
+                            data={pulseRate()}
+                            animate={{ duration: 2000 }}
+                        />
+                    </svg>
+                    <p> pulse rate return to normal </p>
+                </div>
+                <div>
+                    <svg viewBox="0 0 200 200">
+                        <text x={100} y={100} textAnchor="middle">
+                            {oxygenLevel()[1].y}%
+                        </text>
+                        <VictoryPie
+                            standalone={false}
+                            padAngle={0}
+                            labelComponent={<span />}
+                            innerRadius={70}
+                            width={200} height={200}
+                            colorScale={["#e3dede", "#19B3A6" ]}
+                            data={oxygenLevel()}
+                            animate={{ duration: 2000 }}
+                        />
+                    </svg>
+                    <p> oxygen Level going back to normal</p>
+                </div>
+                <div>
+                    <svg viewBox="0 0 200 200">
+                        <text x={100} y={100} textAnchor="middle">
+                            {carbonMonoxideLevel()[1].y}%
+                        </text>
+                        <VictoryPie
+                            standalone={false}
+                            padAngle={0}
+                            labelComponent={<span />}
+                            innerRadius={70}
+                            width={200} height={200}
+                            colorScale={["#e3dede", "#19B3A6" ]}
+                            data={carbonMonoxideLevel()}
+                            animate={{ duration: 2000 }}
+                        />
+                    </svg>
+                    <p> CarbonMonoxide Level going back to normal</p>
+                </div>
+                <div>
+                    <svg viewBox="0 0 200 200">
+                        <text x={100} y={100} textAnchor="middle">
+                            {nicotinexpelled()[1].y}%
+                        </text>
+                        <VictoryPie
+                            standalone={false}
+                            padAngle={0}
+                            labelComponent={<span />}
+                            innerRadius={70}
+                            width={200} height={200}
+                            colorScale={["#e3dede", "#19B3A6" ]}
+                            data={nicotinexpelled()}
+                            animate={{ duration: 2000 }}
+                        />
+                    </svg>
+                    <p> Nicotin expelled from your body</p>
+                </div>
+                <div>
+                    <svg viewBox="0 0 200 200">
+                        <text x={100} y={100} textAnchor="middle">
+                            {tasteAndSmell()[1].y}%
+                        </text>
+                        <VictoryPie
+                            standalone={false}
+                            padAngle={0}
+                            labelComponent={<span />}
+                            innerRadius={70}
+                            width={200} height={200}
+                            colorScale={["#e3dede", "#19B3A6" ]}
+                            data={tasteAndSmell()}
+                            animate={{ duration: 2000 }}
+                        />
+                    </svg>
+                    <p> Taste And Smell return back to normal</p>
+                </div>
+                <div>
+                    <svg viewBox="0 0 200 200">
+                        <text x={100} y={100} textAnchor="middle">
+                            {circulation()[1].y}%
+                        </text>
+                        <VictoryPie
+                            standalone={false}
+                            padAngle={0}
+                            labelComponent={<span />}
+                            innerRadius={70}
+                            width={200} height={200}
+                            colorScale={["#e3dede", "#19B3A6" ]}
+                            data={circulation()}
+                            animate={{ duration: 2000 }}
+                        />
+                    </svg>
+                    <p> Circulation improvment</p>
+                </div>
+                <div>
+                    <svg viewBox="0 0 200 200">
+                        <text x={100} y={100} textAnchor="middle">
+                            {heartDisease()[1].y}%
+                        </text>
+                        <VictoryPie
+                            standalone={false}
+                            padAngle={0}
+                            labelComponent={<span />}
+                            innerRadius={70}
+                            width={200} height={200}
+                            colorScale={["#e3dede", "#19B3A6"]}
+                            data={heartDisease()}
+                            animate={{ duration: 2000 }}
+                        />
+                    </svg>
+                    <p> reduce risk of heart disease </p>
+                </div>
             </div>
         </div>
     );

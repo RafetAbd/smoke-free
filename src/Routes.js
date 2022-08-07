@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import EditInfo from "./components/EditInfo/EditInfo";
+// import Navbar from "./components/NavBar/Navbar";
 
 const AllRoutes = () => {
 
@@ -14,15 +15,18 @@ const AllRoutes = () => {
 
     return (
         <div>
+             {/* <Navbar /> */}
             {isLoggedIn ? (
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/edit-info" element={<EditInfo />} />                    
+                    <Route path="/edit-info" element={<EditInfo />} />
+                    <Route path="/signup" element={<Home />} />
+
                 </Routes>
             ) : (
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/login" element={<Home />} />
                     <Route path="/signup" element={<Signup />} />
                 </Routes>
             )} 

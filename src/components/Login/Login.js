@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { authenticateLogin, clearError } from "../../store/auth";
+import './Login.css'; 
 
 const Login = () => {
 
@@ -33,14 +34,14 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h1>Login component</h1>
+        <div className="login-main-div" style={{ backgroundImage: "url(/background.jpg)", backgroundColor: "#cccccc", backgroundSize: "cover", backgroundRepeat: "no-repeat", ackgroundPosition: "center center" }}>
+            <p>“It always seems impossible until it's done.” — Nelson Mandela</p>
             {error && <p>{error}</p>}
             {err && <p>{err.response.data}</p>}
             <form onSubmit={handleSubmit}>
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Link to="">forget password</Link>
+                <Link to="">forget password ?</Link>
                 <button type="submit">Login</button>
             </form>
             <p>Don't have an account? <Link to="/signup" onClick={() => clearAllError()}>Signup</Link></p>

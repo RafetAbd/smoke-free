@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { authenticateSignup } from "../../store/auth";
+import { authenticateSignup, clearError } from "../../store/auth";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
@@ -16,15 +16,8 @@ const Signup = () => {
 
     const dispatch = useDispatch();
 
-    const navigate = useNavigate();
-
-    const err = useSelector((state) => state.authReducer.error.error);
-
-    if ( err ) {
-        console.log(err.response.data.message);
-    }
+    let err = useSelector((state) => state.authReducer.error.error);
     
-
     const handleSubmmit = async(e) => {
         e.preventDefault();
         if(!email || !password || !name || !quittingDay || !packetPrice || !cigarettesPerDay){
@@ -32,9 +25,12 @@ const Signup = () => {
             return;
         }
         await dispatch(authenticateSignup(email, password, name, quittingDay, packetPrice, cigarettesPerDay, "signup"));
-        if ( err !== undefined ) {
-            navigate('/');
-        }
+    }
+
+    const clearAllError = async() => {
+        console.log("clear error");
+        // invoke the clear error action creator to clear the error
+        await dispatch(clearError());
     }
 
     return (
@@ -51,7 +47,7 @@ const Signup = () => {
                 <input type="text" placeholder="Cigarettes Per Day" value={cigarettesPerDay} onChange={(e) => setCigarettesPerDay(e.target.value)} />
                 <button type="submit">Signup</button>
             </form>
-            <p>Already have an account? <Link to="/login">Login</Link></p>
+            <p>Already have an account? <Link to="/login" onClick={() => clearAllError()}>Login</Link></p>
         </div>
     );
 }

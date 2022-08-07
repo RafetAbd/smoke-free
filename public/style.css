@@ -1,15 +1,14 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-body {
+html, body {
     margin: 0;
     padding: 0;
-    background: #fff;
-    color: #333;
     background-size: cover;
-    text-decoration: none;
+    overflow: hidden;
 }
+

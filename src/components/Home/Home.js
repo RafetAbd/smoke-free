@@ -3,6 +3,7 @@ import Login from "../Login/Login";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Health from "../Health/Health";
+import './Home.css';
 
 
 const Home = () => {
@@ -38,10 +39,10 @@ const Home = () => {
     } );
 
     return (
-        <div>
+        <div className="main-home-div">
             {isLoggedIn ? (
                 <div>
-                    <div>
+                    <div className="home-page-after-login-main-div">
                     <h1>Home component after login</h1>
                     <p>Hello {user.name}</p>
                     <p>Your big day was {new Date(user.quittingDay).toDateString()}</p>
@@ -55,7 +56,9 @@ const Home = () => {
                     <Health days={quittingPeriod[0]}/>
                 </div>
             ) : (
+              
                 <Login />
+            
             )}
         </div>
     )

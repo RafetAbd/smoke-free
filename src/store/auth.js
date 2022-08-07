@@ -6,6 +6,7 @@ const SET_AUTH = 'SET_AUTH';
 const SET_AUTH_ERROR = 'SET_AUTH_ERROR';
 const UPDATE_USER = 'UPDATE_USER';
 const TOKEN = 'token';
+const USER = 'user';
 
 // Action Creators
 export const setAuth = user => ({
@@ -34,6 +35,8 @@ export const userInfo = () => async dispatch => {
                 authorization: token,
             }
         })
+        // set the user info in the local storage
+        window.localStorage.setItem(USER, JSON.stringify(user));
         // set the user info in the store
         await dispatch(setAuth(user));
         
@@ -70,8 +73,9 @@ export const authenticateSignup = (email, password, name, quittingDay, PacketPri
 
 
 export const logout = () => dispatch => {
-    // remove the token from the local storage
+    // remove the token and user from the local storage
     window.localStorage.removeItem(TOKEN);
+    window.localStorage.removeItem(USER);
     // remove the user info from the store
     dispatch(setAuth({}));
     // redirect the user to the login page
@@ -101,9 +105,10 @@ export const updateUserInfo = (email, password, name, quittingDay, PacketPrice, 
 }
 
 
+
 // Reducer
 const initialState = {
-    user: {},
+    user: JSON.parse(window.localStorage.getItem(USER)) || {},
     error: {}
 }
 
