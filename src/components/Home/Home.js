@@ -45,7 +45,7 @@ const Home = () => {
             {isLoggedIn ? (
                 <div>
                     <div className="home-page-after-login-main-div" style={{ backgroundImage: "url(/pexels-karolina-grabowska-4466492.jpg)", backgroundColor: "#cccccc", backgroundSize: "cover", backgroundRepeat: "no-repeat", ackgroundPosition: "center center" }}>
-                        <h1>{user.name} The best is yet to come</h1>
+                        <h1>{user.name}, The best is yet to come</h1>
                         <ScrollLink to="health" className="scroll-link"
                             spy={true} smooth={true} offset={50} duration={500} activeClass="active"
                         >Health Improvemment so far!</ScrollLink>
