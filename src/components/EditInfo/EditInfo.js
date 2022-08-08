@@ -49,7 +49,7 @@ const EditInfo = () => {
                 <input type="text" placeholder="Packet Price" value={packetPrice} onChange={(e) => setPacketPrice(e.target.value)} />
                 <label>Cigarettes Per Day</label>
                 <input type="text" placeholder="Cigarettes Per Day" value={cigarettesPerDay} onChange={(e) => setCigarettesPerDay(e.target.value)} />
-                <button type="submit">Update</button>
+                <button type="submit" className="submit-botton">Update</button>
             </form>
         </div>
     )

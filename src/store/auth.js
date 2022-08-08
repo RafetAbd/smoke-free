@@ -96,6 +96,7 @@ export const updateUserInfo = (email, password, name, quittingDay, PacketPrice, 
                 authorization: token,
             }
         });
+        window.localStorage.setItem(USER, JSON.stringify(user));
         // set the user info in the store
         dispatch(updateUser(user));
     } catch (authError) {
