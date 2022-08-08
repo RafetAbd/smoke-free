@@ -35,21 +35,23 @@ const Login = () => {
 
     return (
         <div className="login-main-div" style={{ backgroundImage: "url(/background.jpg)", backgroundColor: "#cccccc", backgroundSize: "cover", backgroundRepeat: "no-repeat", ackgroundPosition: "center center" }}>
-            <p>“It always seems impossible until it's done.” — Nelson Mandela</p>
+            <p className="login-main-phrase">Life is better without cigarettes</p>
+            <p className="quote">“It always seems impossible until it's done.” — Nelson Mandela</p>
             {error && <p>{error}</p>}
             {err && <p>{err.response.data}</p>}
             <form onSubmit={handleSubmit}>
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Link to="">forget password ?</Link>
-                <button type="submit">Login</button>
+                <Link to="" className="forgrt-password-link">Forget Password ?</Link>
+                <button type="submit" className="login-button">Login</button>
             </form>
-            <p>Don't have an account? <Link to="/signup" onClick={() => clearAllError()}>Signup</Link></p>
-            <div>
-                <button type="submit">continue with Google</button>
-                <button type="submit">continue with Apple</button>
-                <button type="submit">continue with Facebook</button>
-                </div>
+            <p className="Dont-have-an-account">Don't have an account? <Link to="/signup" onClick={() => clearAllError()} className="sign-up-link">Signup</Link></p>
+            <p className="or">OR</p>
+            {/* <div > */}
+                <button type="submit" className="login-with-bottons">continue with Google</button>
+                <button type="submit" className="login-with-bottons">continue with Apple</button>
+                <button type="submit" className="login-with-bottons">continue with Facebook</button>
+                {/* </div> */}
         </div>
     );
 }
