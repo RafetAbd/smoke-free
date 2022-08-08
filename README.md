@@ -1,8 +1,8 @@
-# Breath healthily
-<img src='public/breath-healthy-landing.png>
+# Breathe healthily
+<img src='public/breath-healthy-landing.png'>
 
-## What is Breath Healthily?
-Breath healthily is a web application that helps you to keep track of your health and wealth after quit smoking.
+## What is Breathe Healthily?
+Breathe healthily is a web application that helps you to keep track of your health and wealth after quit smoking.
 
 ## This site made with LOVE built with [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) and [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
 
