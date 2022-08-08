@@ -36,3 +36,21 @@
     font-size: 1.2em;
     text-shadow: #97c7f1 0px 0px 10px;
 }
+
+@media screen and (max-width: 1000px) {
+
+  .to-home-link {
+    font-size: 1.5em;
+  }
+
+  .navbar-inner-div>button {
+      font-size: 1em;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  .to-home-link {
+    margin-left: 2%;
+  }
+}
