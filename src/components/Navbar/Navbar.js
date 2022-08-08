@@ -27,15 +27,14 @@ const Navbar = () => {
 
     return (
         <div className="navbar-main-div">
-            <h1>Navbar component</h1>
             {isLoggedIn ? (
-                <div>
-                    <Link to="/">Home</Link>
+                <div className="navbar-inner-div">
+                    <Link to="/" className="to-home-link">Home</Link>
                     <button onClick={handleClick}>Logout</button>
                 </div>
             ) : (
-                <div>
-                    <Link to="/login" onClick={() => clearAllError()}>Home</Link>
+                <div className="navbar-inner-div">
+                    <Link to="/login" onClick={() => clearAllError()} className="to-home-link">Home</Link>
                 </div>
             )}
 

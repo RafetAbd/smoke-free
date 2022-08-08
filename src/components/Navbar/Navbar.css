@@ -1,6 +1,38 @@
 .navbar-main-div {
-
-  /* background: linear-gradient(to right, #035e96, #bae0f7); */
   background-image: linear-gradient(to right, hsl(203, 70%, 17%), rgb(0, 157, 255));
   color : #fff;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+}
+
+.navbar-inner-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.to-home-link {
+  color : #fff;
+  font-size: 2em;
+  text-decoration: none;
+  margin-left: 1%;
+}
+
+.to-home-link:hover {
+  text-shadow: #fff 0px 0px 10px;
+  text-decoration: none;
+}
+
+.navbar-inner-div>button {
+  margin-left: auto;
+    margin-right: 2%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-size: 1.2em;
+    text-shadow: #97c7f1 0px 0px 10px;
 }
