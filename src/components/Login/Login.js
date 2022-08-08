@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { authenticateLogin, clearError } from "../../store/auth";
-import './Login.css'; 
+import './Login.css';
 
 const Login = () => {
 
@@ -15,19 +15,19 @@ const Login = () => {
     const dispatch = useDispatch();
 
     // handle the form submit
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         // prevent the default behavior of the form
         e.preventDefault();
         // if the email or password is empty, set the error
-        if ( !email || !password ) {
+        if (!email || !password) {
             setError("Please enter an email and password");
             return;
         };
         // invoke the authenticate action creator to authenticate the user
-        await dispatch(authenticateLogin(email,password,"login")); 
+        await dispatch(authenticateLogin(email, password, "login"));
     }
 
-    const clearAllError = async() => {
+    const clearAllError = async () => {
         console.log("clear error");
         // invoke the clear error action creator to clear the error
         await dispatch(clearError());
@@ -47,9 +47,9 @@ const Login = () => {
             </form>
             <p className="Dont-have-an-account">Don't have an account? <Link to="/signup" onClick={() => clearAllError()} className="sign-up-link">Signup</Link></p>
             <p className="or">OR</p>
-                <button type="submit" className="login-with-bottons">continue with Google</button>
-                <button type="submit" className="login-with-bottons">continue with Apple</button>
-                <button type="submit" className="login-with-bottons">continue with Facebook</button>
+            <button type="submit" className="login-with-bottons">continue with Google</button>
+            <button type="submit" className="login-with-bottons">continue with Apple</button>
+            <button type="submit" className="login-with-bottons">continue with Facebook</button>
         </div>
     );
 }

@@ -51,7 +51,7 @@ form>input:focus {
 
 .forgrt-password-link {
   color: #fff;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold;
   width: 15%;
 }
@@ -148,4 +148,198 @@ width: 20%;
   font-weight: bold;
   margin-top: 1rem;
   padding-left: 5%;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .login-main-phrase {
+    font-size: 5em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: #333 0px 0px 30px;
+    margin-top: 4%;
+    text-align: center;
+    margin-right: 2rem;
+  }
+
+  .quote {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    text-shadow: #fff 0px 0px 20px;
+    margin-top: 3%;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  input {
+    width: 25%;
+    height: 2rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+    padding-left: 2%;
+    box-shadow: #333 0px 0px 10px;
+  }
+
+  .forgrt-password-link {
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    width: 25%;
+  }
+
+  .login-button {
+    background-color: #32A2ED;
+    color: #fff;
+    width: 25%;
+    height: 2rem;
+    border:none;
+    border-radius: 10px;
+    margin-top: 1rem;
+    box-shadow: #333 0px 0px 10px;
+  }
+
+  .login-with-bottons {
+    opacity: 0.5;
+    width: 25%;
+    height: 2rem;
+    border:none;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: #333 0px 0px 20px;
+    margin-left: 5%;
+    text-align: center;
+  }
+
+  .login-with-bottons:hover {
+    width: 25%;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+
+  .login-main-div {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .quote {
+    display: none;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-top: 5%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  input {
+    width: 40%;
+    height: 2rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+    padding-left: 2%;
+    box-shadow: #333 0px 0px 10px;
+  }
+
+  .forgrt-password-link {
+    color: #fff;
+    font-size: 0.8em;
+    font-weight: bold;
+    width: 40%;
+    text-align: center;
+  }
+
+  .login-button {
+    background-color: #32A2ED;
+    color: #fff;
+    width: 40%;
+    height: 2rem;
+    border:none;
+    border-radius: 10px;
+    margin-top: 1rem;
+    box-shadow: #333 0px 0px 10px;
+  }
+
+  .login-with-bottons {
+    opacity: 0.5;
+    width: 40%;
+    height: 2rem;
+    border:none;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: #333 0px 0px 20px;
+    margin-left: 5%;
+    text-align: center;
+    
+  }
+
+  .Dont-have-an-account {
+    color: #fff;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-left: 5%;
+    text-align: center;
+  }
+
+  .or {
+    display: none;
+  }
+  
+  .or:before,
+  .or:after {
+  display: none;
+  }
+
+  .login-with-bottons {
+    opacity: 0.5;
+    width: 40%;
+    height: 2rem;
+    border:none;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: #333 0px 0px 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .login-with-bottons:hover {
+    width: 40%;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  .login-main-phrase {
+    margin-top: 3%;
+    font-size: 4em;
+  }
+
+  input {
+    width: 60%;
+  }
+
+  .login-button {
+    width: 60%;
+  }
+
+  .login-with-bottons {
+    width: 60%;
+  }
+
+  .login-with-bottons:hover {
+    width: 60%;
+  }
 }
